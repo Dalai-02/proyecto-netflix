@@ -20,53 +20,137 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Header(size: size),
             Previews(size: size),
-                  Container(
-              height: size.height * 0.4,
-              width: double.infinity,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20, top: 20),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("Continue Watching for user",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,),),
-                      SizedBox(height: size.height * 0.03,
-                      ),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                          ContinueWatching(
-                            size: size, 
-                            image: "assets/img/slider/violet_preview.jpg"
-                            ),
-                            ContinueWatching(
-                            size: size, 
-                            image: "assets/img/slider/silent_voice_preview.jpg"
-                            ),
-                            ContinueWatching(
-                            size: size, 
-                            image: "assets/img/slider/scissors_preview.jpg"
-                            ),
-                            ContinueWatching(
-                            size: size, 
-                            image: "assets/img/slider/nana_preview.jpg"
-                            ),    
-                          ],
-                        ),
-                      ),
-                  ],
-                ),
-              ),
-            ),
+                  ContinueUser(size: size),
+                  PopularOnNetflix(size: size)
           ], 
         ),
       ),
     );
+  }
+}
+
+class PopularOnNetflix extends StatelessWidget {
+  const PopularOnNetflix({
+    super.key,
+    required this.size,
+  });
+
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: size.height * 0.35,
+      width: double.infinity,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 20, top: 1),
+        child: Column(  
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("Popular on Netflix",
+            style: TextStyle(
+            color: Colors.white,
+            fontSize: 25,
+            fontWeight: FontWeight.bold,)),
+            SizedBox(height: size.height * 0.03,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  Popular(size: size, image: "assets/img/popularOnNetflix/black_popular.jpg"),
+                  Popular(size: size, image: "assets/img/popularOnNetflix/blue_popular.jpg"),
+                  Popular(size: size, image: "assets/img/popularOnNetflix/cyberpunk_popular.jpg"),
+                  Popular(size: size, image: "assets/img/popularOnNetflix/avatar_popular.jpg"),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Popular extends StatelessWidget {
+  const Popular({
+    super.key,
+    required this.size,
+    required this.image,
+  });
+
+  final Size size;
+  final String image;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 10),
+      child: Container(
+        height: size.height * 0.25,
+        width: size.width * 0.4,
+        color: Colors.white,
+        child: Image.asset(image, 
+        fit: BoxFit.cover,),
+      ),
+    );
+  }
+}
+
+class ContinueUser extends StatelessWidget {
+  const ContinueUser({
+    super.key,
+    required this.size,
+  });
+
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+                  height: size.height * 0.4,
+                  width: double.infinity,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20, top: 20),
+                    child: Column(
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text("Continue Watching for user",
+      style: TextStyle(
+        color: Colors.white,
+        fontSize: 25,
+        fontWeight: FontWeight.bold,),),
+        SizedBox(height: size.height * 0.03,
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+            ContinueWatching(
+              size: size, 
+              image: "assets/img/slider/violet_preview.jpg"
+              ),
+              ContinueWatching(
+              size: size, 
+              image: "assets/img/slider/silent_voice_preview.jpg"
+              ),
+              ContinueWatching(
+              size: size, 
+              image: "assets/img/slider/scissors_preview.jpg"
+              ),
+              ContinueWatching(
+              size: size, 
+              image: "assets/img/slider/nana_preview.jpg"
+              ),    
+            ],
+          ),
+        ),
+    ],
+                    ),
+                  ),
+                );
   }
 }
 

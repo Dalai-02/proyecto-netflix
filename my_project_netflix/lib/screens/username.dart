@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_project_netflix/screens/home.dart';
 
 class UserName extends StatefulWidget {
   const UserName({super.key});
@@ -16,9 +17,9 @@ class _UserNameState extends State<UserName> {
         color: Colors.black,
         child: Column(
           children: [
-            SizedBox(height: size.height * 0.05),
+            SizedBox(height: size.height * 0.04),
             Header(size: size),
-            SizedBox(height: size.height * 0.15),
+            SizedBox(height: size.height * 0.10),
             Username(
               size: size,
             username1: "Flutter",
@@ -35,6 +36,21 @@ class _UserNameState extends State<UserName> {
             image2: "assets/img/profile4.jpg",
             ),
             SizedBox(height: size.height * 0.01),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // SizedBox(
+                //   width: size.width * 0.075,
+                //   height: size.height * 0.05,
+                // ),
+                Image.asset('assets/img/añadir_perfil1.jpeg', width:150),
+                SizedBox(
+                  width: size.width * 0.075,
+                  height: size.height * 0.02,
+                ),
+                Text("Añadir perfil", style: TextStyle(color: Colors.white)),
+              ],
+            )
           ],
         ),
      ));
@@ -60,12 +76,17 @@ class Username extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Column(
-          children:[
-            Image.asset(image1, width: size.width * 0.4, height: size.width * 0.4, fit: BoxFit.cover),
-            SizedBox(height: size.height * 0.01),
-            Text(username1, style: TextStyle(color: Colors.white))
-          ],
+        GestureDetector(
+          onTap: () { 
+            Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+          },
+          child: Column(
+            children:[
+              Image.asset(image1, width: size.width * 0.4, height: size.width * 0.4, fit: BoxFit.cover),
+              SizedBox(height: size.height * 0.01),
+              Text(username1, style: TextStyle(color: Colors.white))
+            ],
+          ),
         ),
         SizedBox(width: size.width * 0.08),
         Column(
