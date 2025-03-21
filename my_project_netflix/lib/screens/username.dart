@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_project_netflix/screens/home.dart';
+import 'package:my_project_netflix/screens/nav.dart';
 
 class UserName extends StatefulWidget {
   const UserName({super.key});
@@ -78,7 +79,7 @@ class Username extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () { 
-            Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => NavBar()));
           },
           child: Column(
             children:[

@@ -61,7 +61,10 @@ flutter:
   assets:
     - assets/img/
     - assets/img/slider/
-    - assets/img/popularOnNetflix/
+    - assets/img/popular/
+    - assets/img/trending/
+    - assets/img/my_list/
+    - assets/img/top10/
     - assets/icon/
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -20,8 +20,27 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Header(size: size),
             Previews(size: size),
-                  ContinueUser(size: size),
-                  PopularOnNetflix(size: size)
+            ContinueUser(size: size),
+            PopularOnNetflix(
+              size: size,
+             title: "Popular on Netflix",
+             imagefolder: "popular",
+             ),
+            PopularOnNetflix(
+              size: size, 
+              title: "Trending Now",
+              imagefolder: "trending",
+              ),
+              PopularOnNetflix(
+              size: size, 
+              title: "Top 10 in México",
+              imagefolder: "top10",
+              ),
+              PopularOnNetflix(
+              size: size, 
+              title: "My list",
+              imagefolder: "my_list",
+              ),
           ], 
         ),
       ),
@@ -33,9 +52,12 @@ class PopularOnNetflix extends StatelessWidget {
   const PopularOnNetflix({
     super.key,
     required this.size,
+    required this.title, 
+    required this.imagefolder,
   });
 
   final Size size;
+  final String title, imagefolder;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +69,7 @@ class PopularOnNetflix extends StatelessWidget {
         child: Column(  
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Popular on Netflix",
+            Text(title,
             style: TextStyle(
             color: Colors.white,
             fontSize: 25,
@@ -58,10 +80,10 @@ class PopularOnNetflix extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  Popular(size: size, image: "assets/img/popularOnNetflix/black_popular.jpg"),
-                  Popular(size: size, image: "assets/img/popularOnNetflix/blue_popular.jpg"),
-                  Popular(size: size, image: "assets/img/popularOnNetflix/cyberpunk_popular.jpg"),
-                  Popular(size: size, image: "assets/img/popularOnNetflix/avatar_popular.jpg"),
+                  Popular(size: size, image: "assets/img/$imagefolder/black_popular.jpg"),
+                  Popular(size: size, image: "assets/img/$imagefolder/blue_popular.jpg"),
+                  Popular(size: size, image: "assets/img/$imagefolder/cyberpunk_popular.jpg"),
+                  Popular(size: size, image: "assets/img/$imagefolder/avatar_popular.jpg"),
                 ],
               ),
             )
